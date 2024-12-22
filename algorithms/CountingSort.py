@@ -6,12 +6,6 @@ class CountingSort(Sort, ABC):
 
     @staticmethod
     def sort(input_array):
-        """
-        Perform Counting Sort on an array of non-negative integers.
-
-        :param input_array: List of non-negative integers to be sorted.
-        :return: The sorted array.
-        """
         # Finding the maximum element of input_array.
         M = max(input_array)
 
@@ -37,9 +31,6 @@ class CountingSort(Sort, ABC):
 
     @staticmethod
     def sort_with_visualization(input_array):
-        """
-        Perform Counting Sort with intermediate states for visualization.
-        """
         M = max(input_array)
 
         # Initialize count array

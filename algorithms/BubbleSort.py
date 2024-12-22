@@ -1,16 +1,11 @@
-class BubbleSort:
-    """
-    A class to perform Bubble Sort with optional visualization.
-    """
+from abc import ABC
+from shared.Sort import Sort
+
+
+class BubbleSort(Sort, ABC):
 
     @staticmethod
     def sort(arr):
-        """
-        Perform Bubble Sort on an array.
-
-        :param arr: List of integers to be sorted.
-        :return: The sorted array.
-        """
         n = len(arr)
         for i in range(n):
             # Last i elements are already sorted
@@ -22,12 +17,6 @@ class BubbleSort:
 
     @staticmethod
     def sort_with_visualization(arr):
-        """
-        Perform Bubble Sort on an array with visualization.
-
-        :param arr: List of integers to be sorted.
-        :return: A generator yielding intermediate states of the array.
-        """
         n = len(arr)
         for i in range(n):
             for j in range(0, n - i - 1):
