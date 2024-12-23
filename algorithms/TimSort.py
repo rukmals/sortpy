@@ -1,5 +1,7 @@
 from abc import ABC
 from shared.Sort import Sort
+from algorithms.MergeSort import MergeSort
+from algorithms.InsertionSort import InsertionSort
 
 
 class TimSort(Sort, ABC):
@@ -12,7 +14,7 @@ class TimSort(Sort, ABC):
         # Step 1: Sort small runs using Insertion Sort
         for start in range(0, n, TimSort.MIN_RUN):
             end = min(start + TimSort.MIN_RUN - 1, n - 1)
-            TimSort.insertion_sort(arr, start, end)
+            InsertionSort.insertion_sort(arr, start, end)
 
         # Step 2: Merge runs using Merge Sort logic
         size = TimSort.MIN_RUN
@@ -22,49 +24,25 @@ class TimSort(Sort, ABC):
                 right = min(n - 1, left + 2 * size - 1)
 
                 if mid < right:
-                    TimSort.merge(arr, left, mid, right)
+                    MergeSort.merge(arr, left, mid, right)
             size *= 2
 
     @staticmethod
-    def sort_with_visualization(input_array):
-        pass  # Implement visualization logic if needed.
+    def sort_with_visualization(arr):
+        n = len(arr)
 
-    @staticmethod
-    def insertion_sort(arr, left, right):
-        for i in range(left + 1, right + 1):
-            key = arr[i]
-            j = i - 1
-            while j >= left and arr[j] > key:
-                arr[j + 1] = arr[j]
-                j -= 1
-            arr[j + 1] = key
+        # Step 1: Sort small runs using Insertion Sort
+        for start in range(0, n, TimSort.MIN_RUN):
+            end = min(start + TimSort.MIN_RUN - 1, n - 1)
+            yield from InsertionSort.insertion_sort_with_visualization(arr, start, end)  # Yield each step
 
-    @staticmethod
-    def merge(arr, left, mid, right):
-        # Create temporary arrays
-        left_part = arr[left:mid + 1]
-        right_part = arr[mid + 1:right + 1]
+        # Step 2: Merge runs using Merge Sort logic
+        size = TimSort.MIN_RUN
+        while size < n:
+            for left in range(0, n, 2 * size):
+                mid = min(n - 1, left + size - 1)
+                right = min(n - 1, left + 2 * size - 1)
 
-        # Merge the temporary arrays back into arr
-        i = 0
-        j = 0
-        k = left
-        while i < len(left_part) and j < len(right_part):
-            if left_part[i] <= right_part[j]:
-                arr[k] = left_part[i]
-                i += 1
-            else:
-                arr[k] = right_part[j]
-                j += 1
-            k += 1
-
-        # Copy remaining elements
-        while i < len(left_part):
-            arr[k] = left_part[i]
-            i += 1
-            k += 1
-
-        while j < len(right_part):
-            arr[k] = right_part[j]
-            j += 1
-            k += 1
+                if mid < right:
+                    yield from MergeSort.merge_with_visualization(arr, left, mid, right)  # Yield each step
+            size *= 2
