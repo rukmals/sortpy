@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="sortpython",  # Unique name for your package
-    version="0.0.1",  # Initial version
+    version="0.0.2",  # Initial version
     author="Rukmal Senavirathne",
     description="A Python package for various sorting algorithms",
     long_description=open("README.md").read(),
