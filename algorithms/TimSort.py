@@ -5,7 +5,7 @@ from algorithms.InsertionSort import InsertionSort
 
 
 class TimSort(Sort, ABC):
-    MIN_RUN = 32  # Move this to class-level since it doesn't rely on `self`.
+    MIN_RUN = 32
 
     @staticmethod
     def sort(arr):
