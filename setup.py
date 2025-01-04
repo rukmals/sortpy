@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="sorting-algorithms",  # Unique name for your package
+    name="sortpython",  # Unique name for your package
     version="0.0.1",  # Initial version
     author="Rukmal Senavirathne",
     description="A Python package for various sorting algorithms",
@@ -14,5 +14,6 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    install_requires=['matplotlib'],
     python_requires=">=3.6",  # Specify compatible Python versions
 )
