@@ -8,7 +8,6 @@ sortpython is a Python library that implements a variety of sorting algorithms. 
 
 ## Features
 
-- **Quick Sort**: Fast and efficient for most cases.
 - **Merge Sort**: Stable and reliable for large datasets.
 - **Bubble Sort**: Simple and easy to understand.
 - **Counting Sort**: Efficient for sorting integers within a limited range.
