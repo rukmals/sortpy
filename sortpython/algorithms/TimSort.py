@@ -1,7 +1,7 @@
 from abc import ABC
-from shared.Sort import Sort
-from algorithms.MergeSort import MergeSort
-from algorithms.InsertionSort import InsertionSort
+from sortpython.shared.Sort import Sort
+from sortpython.algorithms.MergeSort import MergeSort
+from sortpython.algorithms.InsertionSort import InsertionSort
 
 
 class TimSort(Sort, ABC):

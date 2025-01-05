@@ -1,5 +1,5 @@
 from abc import ABC
-from shared.Sort import Sort
+from sortpython.shared.Sort import Sort
 
 
 class InsertionSort(Sort, ABC):
