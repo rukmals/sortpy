@@ -27,8 +27,8 @@ pip install sortpython
 
 ## Usage
 ```bash
-from algorithms.TimSort import TimSort
-from visualize.SortVisualizer import SortVisualizer
+from sortpython.algorithms.TimSort import TimSort
+from sortpython.visualize.SortVisualizer import SortVisualizer
 
 data = [64, 34, 25, 12, 22, 11, 90]
 visualize = input("Do you want to visualize the sorting process? (y/n): ").strip().lower() == 'y'
